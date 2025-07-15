@@ -5,12 +5,22 @@ from firebase_admin import credentials, db
 import uuid
 from streamlit_autorefresh import st_autorefresh
 
-# ========== Firebase Setup ==========
+
+# Read key from Streamlit secrets
+firebase_key_dict = json.loads(st.secrets["firebase_key"])
+db_url = st.secrets["database_url"]
+
 if not firebase_admin._apps:
-    cred = credentials.Certificate("firebase_key.json")  # 👈 Place your key here 
+    cred = credentials.Certificate(firebase_key_dict)
     firebase_admin.initialize_app(cred, {
-        'databaseURL': 'https://taskmanager-fb5cb-default-rtdb.firebaseio.com/'  # 👈 Replace with your actual DB URL
+        'databaseURL': db_url
     })
+# ========== Firebase Setup ==========
+#if not firebase_admin._apps:
+#    cred = credentials.Certificate("firebase_key.json")  # 👈 Place your key here 
+#    firebase_admin.initialize_app(cred, {
+#        'databaseURL': 'Url_paste'  # 👈 Replace with your actual DB URL
+#    })
 
 ref = db.reference("tasks")
 

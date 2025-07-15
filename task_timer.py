@@ -88,6 +88,6 @@ else:
         with col3:
             if st.button("❌", key=task['id']):
                 delete_task_from_firebase(task['id'])
-                st.experimental_rerun()
+                st.rerun()
 
 st_autorefresh(interval=30000, key="firebase-refresh")

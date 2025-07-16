@@ -83,10 +83,10 @@ else:
             else:
                 hrs, rem = divmod(remaining.seconds, 3600)
                 mins, secs = divmod(rem, 60)
-                st.success(f"{remaining.days}d {hrs:02}h:{mins:02}m:{secs:02}s")
+                st.success(f"{remaining.days}days 🔸 {hrs:02}hrs 🔹 {mins:02}mins 🔻")
         with col3:
             if st.button("❌", key=task['id']):
                 delete_task_from_firebase(task['id'])
                 st.rerun()
 
-st_autorefresh(interval=30000, key="firebase-refresh")
+st_autorefresh(interval=60000, key="firebase-refresh")

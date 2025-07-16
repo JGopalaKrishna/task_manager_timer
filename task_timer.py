@@ -83,7 +83,7 @@ else:
             else:
                 hrs, rem = divmod(remaining.seconds, 3600)
                 mins, secs = divmod(rem, 60)
-                st.success(f"{remaining.days}days 🔸 {hrs:02}hrs 🔹 {mins:02}mins 🔻")
+                st.success(f"{remaining.days}days 🔸 {hrs:02}hrs 🔹 {mins:02}mins")
         with col3:
             if st.button("❌", key=task['id']):
                 delete_task_from_firebase(task['id'])

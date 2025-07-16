@@ -12,7 +12,7 @@ IST = pytz.timezone("Asia/Kolkata")
 
 # ========== Firebase Setup ==========
 if not firebase_admin._apps:
-    firebase_key_dict = json.loads(st.secrets["firebase"]["key"])
+    firebase_key_dict = json.loads(st.secrets["firebase"]["firebase_key "])
     db_url = st.secrets["firebase"]["database_url"]
     cred = credentials.Certificate(firebase_key_dict)
     firebase_admin.initialize_app(cred, {
